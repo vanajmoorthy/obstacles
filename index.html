@@ -14,6 +14,7 @@
 
 <body>
 	<p id="score">Score: 0</p>
+	<!-- <p id="restart">Restart</p> -->
 	<p id="black_bg">
 	</p>
 
@@ -23,6 +24,13 @@
 			Your mouse and Mr Arrow hate each other! Use their repellant force to guide Mr Arrow into the blue dots to
 			gain points and avoid the red dots.
 		</p>
+
+		<!-- <form onsubmit="startGame()" class="name">
+			Enter your name here:<br>
+			<input id="form" type="text" name="name">
+			<br>
+		</form> -->
+
 		<button onClick="startGame()">Start Game</button>
 
 	</div>
@@ -32,6 +40,32 @@
 	<script src="./vehicle.js"></script>
 	<script src="./consumable.js"></script>
 	<script src="./fade.js"></script>
+	<script src="./restart.js"></script>
+	<script src="./noscroll.js"></script>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+				 https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyCFU2zKDjOxXm0t-EwDC-82GjB5Lf3q_24",
+			authDomain: "obstacles-dfb00.firebaseapp.com",
+			databaseURL: "https://obstacles-dfb00.firebaseio.com",
+			projectId: "obstacles-dfb00",
+			storageBucket: "obstacles-dfb00.appspot.com",
+			messagingSenderId: "399366358388",
+			appId: "1:399366358388:web:8e9e35e3ec378a764f9821",
+			measurementId: "G-9LRDKES39T"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
 
 
 </body>

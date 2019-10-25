@@ -13,7 +13,22 @@ const consumables = [];
 let vehicle = undefined;
 let score = 0;
 
+function someFunction() {
+	console.log("hello");
+}
+
+// function restart() {
+// 	instructions.style.display = "block";
+// 	instructions.style.opacity = "1";
+// 	console.log("hello");
+// 	clear();
+// 	draw();
+// 	scoreElement.innerHTML = `Score: 0`;
+// }
+
 function startGame() {
+	// let name = document.getElementById("form").value;
+	// console.log(name);
 	fadeOut();
 	black_bg.style.display = "block";
 	loop();
