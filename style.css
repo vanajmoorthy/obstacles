@@ -1,5 +1,6 @@
-* {
-	box-sizing: border-box;
+html, body {
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 body {
@@ -9,8 +10,6 @@ body {
 	font-family: europa, sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	overflow-y: hidden;
-	overflow-x: hidden;
 }
 
 .instructions {
