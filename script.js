@@ -85,6 +85,7 @@ function draw() {
 
 	if (score < 0) {
 		userHasLost();
+		return;
 	}
 }
 
