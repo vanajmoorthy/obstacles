@@ -25,7 +25,7 @@ class Vehicle {
 
 		translate(this.position.x, this.position.y);
 		rotate(angle);
-		
+
 		beginShape(TRIANGLES);
 		vertex(0, -this.size);
 		vertex(-this.size / 2, this.size);
@@ -60,7 +60,7 @@ class Vehicle {
 			consumable.position.x,
 			consumable.position.y
 		);
-		return (d < consumable.size * 2) ? true: false;
+		return d < consumable.size * 2 ? true : false;
 	}
 
 	applyForce(force) {
