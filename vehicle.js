@@ -1,16 +1,16 @@
 class Vehicle {
-	constructor(x, y, max_speed, max_force) {
+	constructor(x, y, maxSpeed, maxForce) {
 		this.position = createVector(x, y);
 		this.velocity = createVector(random(-1, 1), random(-1, 1));
 		this.acceleration = createVector(0, 0);
 		this.size = VEHICLE_SIZE;
-		this.max_speed = max_speed || DEFAULT_MAX_SPEED;
-		this.max_force = max_force || DEFAULT_MAX_FORCE;
+		this.maxSpeed = maxSpeed || DEFAULT_MAX_SPEED;
+		this.maxForce = maxForce || DEFAULT_MAX_FORCE;
 	}
 
 	update() {
 		this.velocity.add(this.acceleration);
-		this.velocity.limit(this.max_speed);
+		this.velocity.limit(this.maxSpeed);
 		this.position.add(this.velocity);
 		this.acceleration.mult(0);
 	}
@@ -71,10 +71,10 @@ class Vehicle {
 		if (dist(target.x, target.y, this.position.x, this.position.y) < 100) {
 			let desired = p5.Vector.sub(target, this.position);
 
-			desired.setMag(this.max_speed);
+			desired.setMag(this.maxSpeed);
 
 			let steering = p5.Vector.sub(desired, this.velocity);
-			steering.limit(this.max_force);
+			steering.limit(this.maxForce);
 
 			steering.mult(-1);
 			this.applyForce(steering);

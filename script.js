@@ -2,6 +2,7 @@ const scoreElement = document.getElementById("score");
 const black_bg = document.getElementById("black_bg");
 const instructions = document.querySelector(".instructions");
 
+// Lmao ye conventions
 const DEFAULT_MAX_SPEED = 3;
 const DEFAULT_MAX_FORCE = 0.2;
 const VEHICLE_SIZE = 15;
@@ -16,10 +17,6 @@ let score = 0;
 let gameOver = false;
 let title = document.getElementById("title");
 let bigger = document.getElementById("bigger");
-
-// function someFunction() {
-// 	console.log("hello");
-// }
 
 function restart() {
 	instructions.style.display = "block";
@@ -56,8 +53,6 @@ function setup() {
 function draw() {
 	background(0);
 
-	console.log(gameOver);
-
 	for (let i = consumables.length - 1; i >= 0; i--) {
 		const consumable = consumables[i];
 		consumable.draw();
@@ -82,15 +77,15 @@ function draw() {
 		vehicle.checkEdges();
 		vehicle.draw();
 	}
-
-	if (score < 0) {
-		userHasLost();
-		return;
-	}
 }
 
 function updateScore() {
 	scoreElement.innerHTML = `Score: ${score}`;
+	console.log(score);
+	if (score < 0) {
+		userHasLost();
+		console.log("lost");
+	}
 }
 
 function userHasLost() {
@@ -99,6 +94,7 @@ function userHasLost() {
 	instructions.style.opacity = "1";
 	bigger.innerText = "Your score went into the negative! You lose!";
 	scoreElement.innerHTML = `Score: 0`;
+	score = 0;
 	gameOver = true;
 	noLoop();
 }

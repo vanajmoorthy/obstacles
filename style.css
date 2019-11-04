@@ -1,9 +1,9 @@
 html, body {
-	overflow-y: hidden;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 body {
+	position: relative;
 	font-family: sans-serif;
 	margin: 0;
 	height: 100vh;
