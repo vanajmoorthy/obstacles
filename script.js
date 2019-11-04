@@ -2,6 +2,12 @@ const scoreElement = document.getElementById("score");
 const black_bg = document.getElementById("black_bg");
 const instructions = document.querySelector(".instructions");
 
+// let elements = document.querySelectorAll('*');
+
+// for (i in elements) {
+// 	elements[i].style.display = "none";
+// }
+
 // Lmao ye conventions
 const DEFAULT_MAX_SPEED = 3;
 const DEFAULT_MAX_FORCE = 0.2;
@@ -56,7 +62,7 @@ function draw() {
 	for (let i = consumables.length - 1; i >= 0; i--) {
 		const consumable = consumables[i];
 		consumable.draw();
-		
+
 		if (vehicle.checkConsumableCollision(consumable)) {
 			if (consumable.type === "food") {
 				score++;
