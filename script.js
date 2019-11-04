@@ -2,6 +2,7 @@ const scoreElement = document.getElementById("score");
 const black_bg = document.getElementById("black_bg");
 const instructions = document.querySelector(".instructions");
 
+// Lmao ye conventions
 const DEFAULT_MAX_SPEED = 3;
 const DEFAULT_MAX_FORCE = 0.2;
 const VEHICLE_SIZE = 15;
@@ -13,25 +14,24 @@ const consumables = [];
 let vehicle = undefined;
 let score = 0;
 
-function someFunction() {
-	console.log("hello");
-}
+let gameOver = false;
+let title = document.getElementById("title");
+let bigger = document.getElementById("bigger");
 
-// function restart() {
-// 	instructions.style.display = "block";
-// 	instructions.style.opacity = "1";
-// 	console.log("hello");
-// 	clear();
-// 	draw();
-// 	scoreElement.innerHTML = `Score: 0`;
-// }
+function restart() {
+	instructions.style.display = "block";
+	instructions.style.opacity = "1";
+	draw();
+	scoreElement.innerHTML = `Score: 0`;
+	gameOver = true;
+}
 
 function startGame() {
 	// let name = document.getElementById("form").value;
-	// console.log(name);
 	fadeOut();
 	black_bg.style.display = "block";
 	loop();
+	gameOver = false;
 }
 
 function setup() {
@@ -71,13 +71,32 @@ function draw() {
 	}
 
 	createCursorCircle();
-	vehicle.update();
-	vehicle.checkEdges();
-	vehicle.draw();
+
+	if (!gameOver) {
+		vehicle.update();
+		vehicle.checkEdges();
+		vehicle.draw();
+	}
 }
 
 function updateScore() {
 	scoreElement.innerHTML = `Score: ${score}`;
+	console.log(score);
+	if (score < 0) {
+		userHasLost();
+		console.log("lost");
+	}
+}
+
+function userHasLost() {
+	title.innerText = "You Lose!";
+	instructions.style.display = "block";
+	instructions.style.opacity = "1";
+	bigger.innerText = "Your score went into the negative! You lose!";
+	scoreElement.innerHTML = `Score: 0`;
+	score = 0;
+	gameOver = true;
+	noLoop();
 }
 
 function createCursorCircle() {
