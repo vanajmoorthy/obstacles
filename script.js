@@ -56,6 +56,7 @@ function draw() {
 	for (let i = consumables.length - 1; i >= 0; i--) {
 		const consumable = consumables[i];
 		consumable.draw();
+		
 		if (vehicle.checkConsumableCollision(consumable)) {
 			if (consumable.type === "food") {
 				score++;
@@ -81,10 +82,9 @@ function draw() {
 
 function updateScore() {
 	scoreElement.innerHTML = `Score: ${score}`;
-	console.log(score);
+
 	if (score < 0) {
 		userHasLost();
-		console.log("lost");
 	}
 }
 
